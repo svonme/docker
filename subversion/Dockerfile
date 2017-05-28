@@ -12,7 +12,7 @@ ENV TERM xterm
 RUN apt-get update
 
 
-apt-get install subversion
+RUN apt-get install -y subversion
 
 RUN mkdir -p /opt/svn
 RUN mkdir -p /opt/svn/data
