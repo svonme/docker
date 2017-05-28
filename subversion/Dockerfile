@@ -1,6 +1,6 @@
 # django
 
-FROM centos:7.2
+FROM ubuntu:14.04
 
 # auth
 MAINTAINER svon <svon@svon.org>
@@ -11,3 +11,15 @@ ENV TERM xterm
 # update source
 RUN apt-get update
 
+
+apt-get install subversion
+
+RUN mkdir -p /opt/svn
+RUN mkdir -p /opt/svn/data
+
+COPY ./config /opt/svn/config
+COPY ./svnserve.sh /opt/svn/svnserve.sh
+
+EXPOSE 3690
+
+ENTRYPOINT ["/bin/bash", "/opt/svn/svnserve.sh"]
