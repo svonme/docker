@@ -1,5 +1,4 @@
-# django
-
+# this is a comment
 FROM python:2.7.13
 
 # auth
@@ -19,18 +18,8 @@ RUN pip install django uwsgi pymongo redis hiredis
 RUN apt-get install -y python-setuptools libmysqld-dev libmysqlclient-dev python-dev
 
 RUN easy_install mysql-python
-
 RUN pip install requests Image 
 
-## code
-
-COPY ./ /home/api_svon/
-
-EXPOSE 8080
-
-RUN apt-get install -y curl git vim nginx
-COPY ./nginx.conf  /etc/nginx/sites-enabled/default
+EXPOSE 8000 8080
 
 
-ENTRYPOINT ["/etc/init.d/nginx", "restart"]
-ENTRYPOINT ["/bin/bash", "/home/api_svon/uwsgi.sh"]
