@@ -1,5 +1,5 @@
 # this is a comment
-FROM python:2.7.13
+FROM python:3
 
 # auth
 MAINTAINER svon <svon@svon.org>
